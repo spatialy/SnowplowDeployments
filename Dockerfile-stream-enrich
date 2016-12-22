@@ -33,9 +33,9 @@ rm -f *.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
-COPY ../../snowplow/target/scala-2.10/snowplow-stream-enrich-0.10.0 /app/snowplow-stream-enrich-0.10.0.jar
-COPY ./configuration/config /app/configuration/config
-COPY ./configuration/resolver.json /app/configuration/resolver.json
-COPY ./configuration/enrichments/ /app/configuration/enrichments/
+COPY  ./snowplow/3-enrich/stream-enrich/target/scala-2.10/snowplow-stream-enrich-0.10.0 /app/snowplow-stream-enrich-0.10.0.jar
+COPY ./stream-enrich/configuration/config /app/configuration/config
+COPY ./stream-enrich/configuration/resolver.json /app/configuration/resolver.json
+COPY ./stream-enrich/configuration/enrichments/ /app/configuration/enrichments/
 
 CMD /app/snowplow-stream-enrich-0.10.0 --config /app/configuration/config --resolver file:/app/configuration/resolver.json --enrichments file:/app/configuration/enrichments

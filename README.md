@@ -15,3 +15,8 @@ Do a `docker run -t stream-enrich .`
 
 ## Deploying the iglu repo
 The iglu repo can be added to s3 and exposed as a website. Whereever you deploy this should be configured in the stream-enrich/configuration/enrichments/ directory
+
+# tips and tricks
+To compile snowplow I use 
+https://github.com/paulp/sbt-extras/
+`~/bin/sbt -v -210 compile`
