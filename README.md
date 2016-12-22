@@ -19,4 +19,4 @@ The iglu repo can be added to s3 and exposed as a website. Whereever you deploy 
 # tips and tricks
 To compile snowplow I use 
 https://github.com/paulp/sbt-extras/
-`~/bin/sbt -v -210 compile`
+`~/bin/sbt -v -210 assembly`
