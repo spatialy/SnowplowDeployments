@@ -37,8 +37,8 @@ enrich {
   #
   # If both are set to 'env', use environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
   aws {
-    access-key: "iam"
-    secret-key: "iam"
+    access-key: "env"
+    secret-key: "env"
   }
 
   # Kafka configuration
@@ -48,7 +48,7 @@ enrich {
 
   streams {
     in: {
-      raw: "{{enrichStreamsInRaw}}"
+      raw: "Dev-web_good"
 
       # Maximum number of records to get from Kinesis per call to GetRecords
       maxRecords: 10000
@@ -60,28 +60,28 @@ enrich {
       # - the time in milliseconds since it was last emptied exceeds time-limit when
       #   a new event enters the buffer
       buffer: {
-        byte-limit: {{enrichStreamsBufferByteThreshold}}
-        record-limit: {{enrichStreamsBufferRecordThreshold}} # Not supported by Kafka; will be ignored
-        time-limit: {{enrichStreamsBufferTimeThreshold}}
+        byte-limit: 1024
+        record-limit: 2
+        time-limit: 1000
       }
     }
 
     out: {
-      enriched: "{{enrichStreamsOutEnriched}}"
-      bad: "{{enrichStreamsOutBad}}"
+      enriched: "Dev-enriched_good"
+      bad: "Dev-enriched_bad"
 
       # Minimum and maximum backoff periods
       # - Units: Milliseconds
       backoffPolicy: {
-        minBackoff: {{enrichStreamsOutMinBackoff}}
-        maxBackoff: {{enrichStreamsOutMaxBackoff}}
+        minBackoff: 100
+        maxBackoff: 2000
       }
     }
 
     # "app-name" is used for a DynamoDB table to maintain stream state.
     # "app-name" is used as the Kafka consumer group ID.
     # You can set it automatically using: "SnowplowKinesisEnrich-$\\{enrich.streams.in.raw\\}"
-    app-name: "{{enrichStreamsAppName}}"
+    app-name: "SnowplowKinesisEnrich"
 
     # LATEST: most recent data.
     # TRIM_HORIZON: oldest available data.
@@ -89,16 +89,8 @@ enrich {
     # on a stream.
     initial-position = "TRIM_HORIZON"
 
-    region: "{{enrichStreamsRegion}}"
+    region: "eu-west-1"
   }
 
-  # Optional section for tracking endpoints
-  monitoring {
-    snowplow {
-      collector-uri: "{{collectorUri}}"
-      collector-port: 80
-      app-id: "{{enrichAppName}}"
-      method: "GET"
-    }
-  }
+# Optional section for tracking endpoints
 }
