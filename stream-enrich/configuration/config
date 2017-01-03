@@ -37,8 +37,8 @@ enrich {
   #
   # If both are set to 'env', use environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
   aws {
-    access-key: "env"
-    secret-key: "env"
+    access-key: "default"
+    secret-key: "default"
   }
 
   # Kafka configuration
@@ -48,7 +48,7 @@ enrich {
 
   streams {
     in: {
-      raw: "Dev-web_good"
+      raw: ${kinesis_input_good}
 
       # Maximum number of records to get from Kinesis per call to GetRecords
       maxRecords: 10000
@@ -67,8 +67,8 @@ enrich {
     }
 
     out: {
-      enriched: "Dev-enriched_good"
-      bad: "Dev-enriched_bad"
+      enriched: ${kinesis_output_good}
+      bad: ${kinesis_output_bad}
 
       # Minimum and maximum backoff periods
       # - Units: Milliseconds
@@ -81,7 +81,7 @@ enrich {
     # "app-name" is used for a DynamoDB table to maintain stream state.
     # "app-name" is used as the Kafka consumer group ID.
     # You can set it automatically using: "SnowplowKinesisEnrich-$\\{enrich.streams.in.raw\\}"
-    app-name: "SnowplowKinesisEnrich"
+    app-name: ${app_name}
 
     # LATEST: most recent data.
     # TRIM_HORIZON: oldest available data.

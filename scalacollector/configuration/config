@@ -81,8 +81,8 @@ collector {
       # Data will be stored in the following stream.
       stream {
         region: "eu-west-1"
-        good: ${kinesis_good}
-        bad: ${kinesis_bad}
+        good: ${kinesisStreamGoodName}
+        bad: ${kinesisStreamBadName}
       }
 
       # Minimum and maximum backoff periods
