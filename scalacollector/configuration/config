@@ -26,7 +26,7 @@ collector {
   # Production mode disables additional services helpful for configuring and
   # initializing the collector, such as a path '/dump' to view all
   # records stored in the current stream.
-  production = false
+  production = ${is_production}
 
   # Configure the P3P policy header.
   p3p {
