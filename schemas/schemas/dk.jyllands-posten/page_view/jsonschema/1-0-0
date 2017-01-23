@@ -25,11 +25,7 @@
             "type": "string",
             "minLength": 1
         },
-        "content_publishdate": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "page_name": {
+       "page_name": {
             "type": "string",
             "minLength": 1
         },
@@ -57,7 +53,6 @@
         "section_name",
         "content_id",
         "content_type",
-        "content_publishdate",
         "page_name",
         "page_type",
         "page_restricted",
