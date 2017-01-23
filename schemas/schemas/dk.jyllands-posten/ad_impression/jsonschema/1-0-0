@@ -1,61 +1,61 @@
 {
-	"$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
-        "description": "Schema for an ad impression event",
-        "self": {
-                "vendor": "dk.jyllands-posten.snowplow",
-                "name": "ad_impression",
-                "format": "jsonschema",
-                "version": "1-0-0"
-        },
-  "type": "object",
-  "properties": {
-    "placement": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "loaded": {
-            "type": "integer"
-          },
-          "loadtime": {
-            "type": "integer"
-          },
-          "inview": {
-            "type": "integer"
-          },
-          "campaigninfo": {
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "description": "Schema for an ad impression event",
+    "self": {
+        "vendor": "dk.jyllands-posten.snowplow",
+        "name": "ad_impression",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "placement": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "campaign": {
-                  "type": "integer"
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "loaded": {
+                        "type": "integer"
+                    },
+                    "loadtime": {
+                        "type": "integer"
+                    },
+                    "inview": {
+                        "type": "integer"
+                    },
+                    "campaigninfo": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "campaign": {
+                                    "type": "integer"
+                                },
+                                "creative": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "campaign",
+                                "creative"
+                            ]
+                        }
+                    }
                 },
-                "creative": {
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "campaign",
-                "creative"
-              ]
+                "required": [
+                    "id",
+                    "loaded",
+                    "loadtime",
+                    "inview",
+                    "campaigninfo"
+                ]
             }
-          }
-        },
-        "required": [
-          "id",
-          "loaded",
-          "loadtime",
-          "inview",
-          "campaigninfo"
-        ]
-      }
-    }
-  },
-  "required": [
-    "placement"
-  ]
+        }
+    },
+    "required": [
+        "placement"
+    ]
 }
