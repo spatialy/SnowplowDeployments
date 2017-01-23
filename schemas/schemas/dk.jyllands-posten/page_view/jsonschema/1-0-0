@@ -10,16 +10,14 @@
     "type": "object",
     "properties": {
         "section_id": {
-            "type": "string",
-            "minLength": 1
+            "type": "integer"
         },
         "section_name": {
             "type": "string",
             "minLength": 1
         },
         "content_id": {
-            "type": "string",
-            "minLength": 1
+            "type": "integer"
         },
         "content_type": {
             "type": "string",
