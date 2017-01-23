@@ -1,0 +1,14 @@
+{
+    // page related labels, server side from Escenic info
+        'section_id': 1,
+        'section_name': 'Forside',
+        'content_id': 1234567,  // content id or 0
+        'content_type': 'default',
+        'page_name': 'jplive.forside.sec',
+        'page_type': 'sec', // fp|sec|art|other
+        'page_restricted':'no',  // yes|no
+        'site':'test.dk',
+        'sub_site':'premium',
+        'editorial_category': 'sport'
+	
+}
