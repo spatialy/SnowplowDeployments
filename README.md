@@ -14,6 +14,7 @@ sbt -java-home /opt/jdk1.7.0_80 assembly
 cd ../../3-enrich/stream-enrich
 sbt -java-home /opt/jdk1.7.0_80 assembly
 
+cd ../..
 docker build  -f Dockerfile-scalacollector -t scala-collector .
 docker build  -f Dockerfile-stream-enrich -t stream-enrich .
 ```

@@ -1,4 +1,4 @@
 [submodule "snowplow"]
 	path = snowplow
 	url = git@github.com:snowplow/snowplow.git
-  branch = r86-petra
+  branch = master
